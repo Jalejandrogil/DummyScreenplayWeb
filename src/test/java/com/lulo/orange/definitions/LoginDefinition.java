@@ -18,6 +18,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 
 public class LoginDefinition {
+    @Dado("{string} quiere crear su usuario en orange")
 
     @Dado("{string} quiere loguearse en la pagina de Orange")
     public void jorgeQuiereLoguearseEnLaPaginaDeOrange(String name) {
@@ -27,7 +28,7 @@ public class LoginDefinition {
     }
     @Cuando("el se loguea")
     public void elSeLoguea() {
-        OnStage.theActorInTheSpotlight().attemptsTo(Loguearse.enOrange());
+        OnStage.theActorInTheSpotlight().attemptsTo(Loguearse.enOrange("Admin", "admin123"));
     }
     @Entonces("el podra ver el nombre {string}")
     public void elPodraVerElNombreAdmin(String nombre) {
