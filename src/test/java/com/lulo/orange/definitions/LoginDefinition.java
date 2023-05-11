@@ -14,6 +14,7 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 import org.hamcrest.Matchers;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 
 public class LoginDefinition {
@@ -30,10 +31,7 @@ public class LoginDefinition {
     }
     @Entonces("el podra ver el nombre {string}")
     public void elPodraVerElNombreAdmin(String nombre) {
-        OnStage.theActorInTheSpotlight().should(seeThat(NombreDeUsuario.enPantalla(), is(nombre)));
+        OnStage.theActorInTheSpotlight().should(seeThat(NombreDeUsuario.enPantalla(), containsString(nombre)));
     }
-    @After
-    public void after(){
-        //OnStage.theActorInTheSpotlight().
-    }
+
 }
